@@ -36,6 +36,7 @@ export const WEBSOCKET_RPC_URLS: { [key in SupportedChainId]?: string } = {
   [SupportedChainId.BASE]: "wss://base-rpc.publicnode.com",
   [SupportedChainId.BLAST]: "wss://blast.drpc.org",
   [SupportedChainId.ARBITRUM]: "wss://arbitrum-one-rpc.publicnode.com",
+  [SupportedChainId.MODE]: "wss://mainnet.mode.network/",
 };
 
 export const ClientChain = [
@@ -46,6 +47,7 @@ export const ClientChain = [
   SupportedChainId.BLAST,
   SupportedChainId.MODE,
   SupportedChainId.ARBITRUM,
+  SupportedChainId.MODE,
 ];
 
 export const ALL_CHAINS = Object.values(supportedWagmiChain);

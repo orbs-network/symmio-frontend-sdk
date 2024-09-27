@@ -166,12 +166,11 @@ export const ChainInfo: { [chainId: number]: Info } = {
     label: "Mode",
     nativeCurrency: {
       name: "ETH",
-      symbol: "Eth",
+      symbol: "ETH",
       decimals: 18,
     },
-
-    rpcUrl: "https://mainnet.mode.network",
-    blockExplorerUrl: "https://modescan.io/",
+    rpcUrl: "https://mainnet.mode.network/",
+    blockExplorerUrl: "https://explorer.mode.network/",
     WRAPPED_NATIVE_ADDRESS: "0x4200000000000000000000000000000000000006",
   },
 };

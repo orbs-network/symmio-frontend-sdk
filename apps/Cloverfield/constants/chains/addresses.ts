@@ -82,6 +82,29 @@ const BSCChainOrbs: ChainType = {
   FUNDING_RATE_SUBGRAPH_ADDRESS:
     "https://api.studio.thegraph.com/query/62454/fundingrate_bnb_8_2/version/latest",
 };
+
+const ModeChainOrbs: ChainType = {
+  COLLATERAL_SYMBOL: "USDT",
+  COLLATERAL_DECIMALS: 18,
+  COLLATERAL_ADDRESS: "0xd988097fb8612cc24eeC14542bC03424c656005f",
+
+  DIAMOND_ADDRESS: "0x3d17f073cCb9c3764F105550B0BCF9550477D266",
+  TP_SL_WALLET_ADDRESS: "",
+  MULTI_ACCOUNT_ADDRESS: process.env.NEXT_PUBLIC_BSC_MULTIACCOUNT!,
+  PARTY_B_WHITELIST: process.env.NEXT_PUBLIC_BSC_PARTY_B!,
+
+  SIGNATURE_STORE_ADDRESS: "0x6EA2EffEB3F0F2582DF5aD52cbe847FA50B628B2",
+  MULTICALL3_ADDRESS: "0x963Df249eD09c358A4819E39d9Cd5736c3087184",
+  USDC_ADDRESS: "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+  WRAPPED_NATIVE_ADDRESS: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+
+  ANALYTICS_SUBGRAPH_ADDRESS:
+    "https://api.studio.thegraph.com/query/62454/analytics_bnb_8_2/version/latest",
+  ORDER_HISTORY_SUBGRAPH_ADDRESS:
+    "https://api.studio.thegraph.com/query/62454/main_bnb_8_2/version/latest",
+  FUNDING_RATE_SUBGRAPH_ADDRESS:
+    "https://api.studio.thegraph.com/query/62454/fundingrate_bnb_8_2/version/latest",
+};
 // --------------------------------------------------------------------
 
 export const ModeChainCloverfieldFE: ChainType = {
@@ -126,8 +149,7 @@ export const contractInfo: {
   [SupportedChainId.ARBITRUM]: {
     [FrontEndsName.ORBS]: ArbitrumChainOrbs,
   },
-
   [SupportedChainId.MODE]: {
-    [FrontEndsName.ORBS]: ModeChainCloverfieldFE,
+    [FrontEndsName.ORBS]: ModeChainOrbs,
   },
 };
