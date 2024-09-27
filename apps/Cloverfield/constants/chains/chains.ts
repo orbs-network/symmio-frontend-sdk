@@ -9,6 +9,7 @@ import {
   mantle,
   blast,
   Chain,
+  mode,
 } from "wagmi/chains";
 import { FrontEndsName } from "./addresses";
 
@@ -21,6 +22,7 @@ const supportedWagmiChain = {
   [SupportedChainId.MAINNET]: mainnet,
   [SupportedChainId.MANTLE]: mantle,
   [SupportedChainId.BLAST]: blast,
+  [SupportedChainId.MODE]: mode,
 };
 
 function getWagmiChain(supportChainList: number[]): Chain[] {
@@ -34,6 +36,7 @@ export const WEBSOCKET_RPC_URLS: { [key in SupportedChainId]?: string } = {
   [SupportedChainId.BASE]: "wss://base-rpc.publicnode.com",
   [SupportedChainId.BLAST]: "wss://blast.drpc.org",
   [SupportedChainId.ARBITRUM]: "wss://arbitrum-one-rpc.publicnode.com",
+  [SupportedChainId.MODE]: "wss://mainnet.mode.network/",
 };
 
 export const ClientChain = [
@@ -43,6 +46,7 @@ export const ClientChain = [
   SupportedChainId.BASE,
   SupportedChainId.BLAST,
   SupportedChainId.ARBITRUM,
+  SupportedChainId.MODE,
 ];
 
 export const ALL_CHAINS = Object.values(supportedWagmiChain);
