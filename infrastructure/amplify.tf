@@ -2,10 +2,9 @@ resource "aws_amplify_app" "symmio_frontend_sdk" {
   name       = "symmio-frontend-sdk-${var.environment_name}"
   repository = var.amplify_repository
 
-  build_spec = var.amplify_build_spec
-
   enable_basic_auth      = var.amplify_enable_basic_auth
   basic_auth_credentials = base64encode(var.amplify_basic_auth_credentials)
+  build_spec             = var.amplify_build_spec
   dynamic "custom_rule" {
     for_each = var.amplify_custom_rule != null ? [var.amplify_custom_rule] : []
     content {
