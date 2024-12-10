@@ -26,9 +26,9 @@ resource "aws_amplify_branch" "develop" {
   stage       = "PRODUCTION"
 }
 
-resource "aws_amplify_domain_association" "clover_orbs_network" {
+resource "aws_amplify_domain_association" "symmio_custom_domain" {
   app_id                = aws_amplify_app.symmio_frontend_sdk.id
-  domain_name           = "${var.environment_name}-clover.orbs.network"
+  domain_name           = var.amplify_custom_domain
   wait_for_verification = false
 
   certificate_settings {

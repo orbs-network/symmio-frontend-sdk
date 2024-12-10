@@ -44,6 +44,11 @@ applications:
 EOT
 }
 
+variable "amplify_custom_domain" {
+  type        = string
+  description = "Custom domain for AWS Amplify"
+}
+
 variable "amplify_custom_rule" {
   type        = map(string)
   description = "Custom rule for AWS Amplify"
