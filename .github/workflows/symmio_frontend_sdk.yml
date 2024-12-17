@@ -48,6 +48,7 @@ jobs:
           environment: "dev"
           branch: ${GITHUB_REF##*/}
           amplify_custom_domain: ${{ secrets.AMPLIFY_CUSTOM_DOMAIN_DEV }}
+          amplify_basic_auth_credentials: ${{ secrets.AMPLIFY_BASIC_AUTH_CREDENTIALS_DEV }}
 
   aws-terraform-staging:
     name: Run AWS Terraform (Staging)
@@ -74,6 +75,7 @@ jobs:
           environment: "staging"
           branch: ${GITHUB_REF##*/}
           amplify_custom_domain: ${{ secrets.AMPLIFY_CUSTOM_DOMAIN_STAGING }}
+          amplify_basic_auth_credentials: ${{ secrets.AMPLIFY_BASIC_AUTH_CREDENTIALS_STAGING }}
 
   aws-terraform-prod:
     name: Run AWS Terraform (Prod)
@@ -100,6 +102,7 @@ jobs:
           environment: "prod"
           branch: ${GITHUB_REF##*/}
           amplify_custom_domain: ${{ secrets.AMPLIFY_CUSTOM_DOMAIN_PROD }}
+          amplify_basic_auth_credentials: ${{ secrets.AMPLIFY_BASIC_AUTH_CREDENTIALS_PROD }}
 
   check-for-failure:
     name: Check for failure
