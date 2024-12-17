@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   aws-terraform-dev:
-    name: Run AWS Terraform
+    name: Run AWS Terraform (Dev)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
@@ -47,7 +47,7 @@ jobs:
           branch: ${GITHUB_REF##*/}
 
   aws-terraform-staging:
-    name: Run AWS Terraform
+    name: Run AWS Terraform (Staging)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
@@ -72,7 +72,7 @@ jobs:
           branch: ${GITHUB_REF##*/}
 
   aws-terraform-prod:
-    name: Run AWS Terraform
+    name: Run AWS Terraform (Prod)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
