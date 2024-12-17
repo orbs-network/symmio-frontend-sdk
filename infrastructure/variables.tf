@@ -71,6 +71,12 @@ variable "amplify_environment_variables" {
   default     = {}
 }
 
+variable "amplify_remote_environment_variables" {
+  type        = map(string)
+  description = "Remote Environment variables for AWS Amplify"
+  default     = {}
+}
+
 variable "amplify_platform" {
   type        = string
   description = "Platform for AWS Amplify"

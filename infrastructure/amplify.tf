@@ -14,7 +14,7 @@ resource "aws_amplify_app" "symmio_frontend_sdk" {
       target    = custom_rule.value.target
     }
   }
-  environment_variables = var.amplify_environment_variables
+  environment_variables = merge(var.amplify_environment_variables, var.amplify_remote_environment_variables)
   iam_service_role_arn  = aws_iam_role.symmio_frontend_sdk_role.arn
   platform              = var.amplify_platform
 }
