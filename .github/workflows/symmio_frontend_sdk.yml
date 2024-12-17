@@ -2,7 +2,6 @@ name: Symmio Frontend SDK
 env:
   aws_deploy_region: "ap-northeast-1"
   build_path: "."
-  environment: "dev"
   terraform_state_s3_bucket: "orbs-terraform-tfstate"
   terraform_state_s3_key_prefix: "symmio-frontend-sdk"
   terraform_state_dynamodb_table: "orbs-terraform-locks"
@@ -48,6 +47,7 @@ jobs:
           build_path: ${{ env.build_path }}
           environment: "dev"
           branch: ${GITHUB_REF##*/}
+          amplify_custom_domain: ${{ secrets.AMPLIFY_CUSTOM_DOMAIN_DEV }}
 
   aws-terraform-staging:
     name: Run AWS Terraform (Staging)
@@ -73,6 +73,7 @@ jobs:
           build_path: ${{ env.build_path }}
           environment: "staging"
           branch: ${GITHUB_REF##*/}
+          amplify_custom_domain: ${{ secrets.AMPLIFY_CUSTOM_DOMAIN_STAGING }}
 
   aws-terraform-prod:
     name: Run AWS Terraform (Prod)
@@ -98,6 +99,7 @@ jobs:
           build_path: ${{ env.build_path }}
           environment: "prod"
           branch: ${GITHUB_REF##*/}
+          amplify_custom_domain: ${{ secrets.AMPLIFY_CUSTOM_DOMAIN_PROD }}
 
   check-for-failure:
     name: Check for failure

@@ -23,6 +23,9 @@ inputs:
   branch:
     description: "Git branch being ran against"
     required: true
+  amplify_custom_domain:
+    description: "Custom domain for Amplify"
+    required: true
 
 runs:
   using: "composite"
@@ -61,7 +64,7 @@ runs:
       run: |
         export TF_VAR_environment=${environment}
         ${{ github.action_path }}/box.sh "Running Terraform plan"
-        plan_command="terraform plan -var-file='./environments/${{ inputs.environment }}/${{ inputs.environment }}.tfvars' -var 'region=${{ inputs.aws_deploy_region }}' -input=false -out=plan.out"
+        plan_command="terraform plan -var-file='./environments/${{ inputs.environment }}/${{ inputs.environment }}.tfvars' -var 'region=${{ inputs.aws_deploy_region }}' -var 'amplify_custom_domain=${{inputs.amplify_custom_domain}}' -input=false -out=plan.out"
         if [ "${{ github.event_name }}" == "workflow_dispatch" ] || [ "${{ inputs.branch }}" == "develop" ]; then
           eval $plan_command
         else
