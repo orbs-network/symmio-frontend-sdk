@@ -19,10 +19,8 @@ runs:
         config_file_name=${{ inputs.environment == 'dev' && 'development' || inputs.environment }}.json
         target_branch=${{ inputs.environment == 'prod' && 'main' || inputs.environment }}
 
-        # GitHub setup and clone Perps Hedger Config repo
-        git config --global credential.helper store
-        echo "https://x-access-token:${{inputs.github_token}}@github.com" > ~/.git-credentials
-        git clone -b $target_branch https://github.com/orbs-network/perps-hedger-config.git
+        # Clone Perps Hedger Config GitHub repo
+        git clone https://${{inputs.github_token}}@github.com/orbs-network/perps-hedger-config.git
 
         # Python setup and generate environment variables tfvars file
         python -m venv venv
