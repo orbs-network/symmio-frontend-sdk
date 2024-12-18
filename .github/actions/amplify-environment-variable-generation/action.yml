@@ -20,7 +20,7 @@ runs:
         target_branch=${{ inputs.environment == 'prod' && 'main' || inputs.environment }}
 
         # Clone Perps Hedger Config GitHub repo
-        git clone -b $target_branch https://${{inputs.github_token}}@github.com/orbs-network/perps-hedger-config.git
+        git clone -b $target_branch https://$GITHUB_TOKEN@github.com/orbs-network/perps-hedger-config.git
 
         # Python setup and generate environment variables tfvars file
         python -m venv venv
@@ -29,4 +29,6 @@ runs:
         python amplify-environment-variable-generation.py --config ./perps-hedger-config/appconfig/$config_file_name --environment $environment
         mv terraform.tfvars ../../../../infrastructure/terraform.tfvars
       shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
       working-directory: ./.github/actions/amplify-environment-variable-generation/amplify-environment-variable-generation
