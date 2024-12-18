@@ -22,7 +22,7 @@ runs:
         # GitHub setup and clone Perps Hedger Config repo
         git config --global credential.helper store
         echo "https://x-access-token:${{github.event.inputs.github_token}}@github.com" > ~/.git-credentials
-        git clone -b ${{target_branch}} https://github.com/orbs-network/perps-hedger-config.git
+        git clone -b $target_branch https://github.com/orbs-network/perps-hedger-config.git
 
         # Python setup and generate environment variables tfvars file
         python -m venv venv
