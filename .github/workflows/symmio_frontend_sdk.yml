@@ -40,7 +40,7 @@ jobs:
       - name: Generate Amplify Environment Variables (Dev)
         uses: ./.github/actions/amplify-environment-variable-generation
         with:
-          environments: "dev"
+          environment: "dev"
           github_token: ${{ secrets.PERPS_HEDGER_CONFIG_GITHUB_TOKEN }}
 
       - name: Run AWS Terraform
@@ -74,7 +74,7 @@ jobs:
       - name: Generate Amplify Environment Variables (Dev)
         uses: ./.github/actions/amplify-environment-variable-generation
         with:
-          environments: "staging"
+          environment: "staging"
           github_token: ${{ secrets.PERPS_HEDGER_CONFIG_GITHUB_TOKEN }}
 
       - name: Run AWS Terraform
@@ -108,7 +108,7 @@ jobs:
       - name: Generate Amplify Environment Variables (Staging)
         uses: ./.github/actions/amplify-environment-variable-generation
         with:
-          environments: "prod"
+          environment: "prod"
           github_token: ${{ secrets.PERPS_HEDGER_CONFIG_GITHUB_TOKEN }}
 
       - name: Run AWS Terraform
