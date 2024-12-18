@@ -16,8 +16,8 @@ runs:
       run: |
         # Variables
         environment="${{ inputs.environment }}"
-        config_file_name=${{ github.event.inputs.environment == 'dev' && 'development.json' || github.event.inputs.environment }}.json
-        target_branch=${{ github.event.inputs.environment == 'prod' && 'main' || github.event.inputs.environment }}
+        config_file_name=${{ inputs.environment == 'dev' && 'development.json' || inputs.environment }}.json
+        target_branch=${{ inputs.environment == 'prod' && 'main' || inputs.environment }}
 
         # GitHub setup and clone Perps Hedger Config repo
         git config --global credential.helper store
