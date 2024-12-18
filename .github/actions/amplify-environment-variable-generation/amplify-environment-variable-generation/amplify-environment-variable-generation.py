@@ -33,12 +33,9 @@ def generate_templates(symm_id: str, hedger_addresses: list[str], party_b_addres
 
     for hedger_address in hedger_addresses:
         templates = [
-            f'"NEXT_PUBLIC_{symm_id}_{hedger_address}_HEDGER_URL"   = "www.{
-                environment}perps-streaming.com/v1/{symm_id}/{hedger_address}/"',
-            f'"NEXT_PUBLIC_{symm_id}_{
-                hedger_address}_MULTIACCOUNT" = "{hedger_address}"',
-            f'"NEXT_PUBLIC_{symm_id}_{
-                hedger_address}_PARTY_B"      = "{party_b_address}"'
+            f'"NEXT_PUBLIC_{symm_id}_{hedger_address}_HEDGER_URL"   = "www.{environment}perps-streaming.com/v1/{symm_id}/{hedger_address}/"',
+            f'"NEXT_PUBLIC_{symm_id}_{hedger_address}_MULTIACCOUNT" = "{hedger_address}"',
+            f'"NEXT_PUBLIC_{symm_id}_{hedger_address}_PARTY_B"      = "{party_b_address}"'
         ]
         all_templates.extend(templates)
 
