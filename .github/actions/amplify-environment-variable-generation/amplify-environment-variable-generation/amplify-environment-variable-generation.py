@@ -22,12 +22,13 @@ def main():
     for symm_id, addresses in symm_accounts.items():
         hedger_addresses = addresses
         party_b_address = config['perSymmId'][symm_id]['symm']['partyBAddress']
+        symm_core_address = config['perSymmId'][symm_id]['symm']['symmCoreAddress']
         env_strings.append(generate_templates(
-            symm_id, hedger_addresses, party_b_address, args.environment))
+            symm_id, hedger_addresses, party_b_address, symm_core_address, args.environment))
     write_tfvars_file(env_strings)
 
 
-def generate_templates(symm_id: str, hedger_addresses: list[str], party_b_address: str, environment: str) -> str:
+def generate_templates(symm_id: str, hedger_addresses: list[str], party_b_address: str,  symm_core_address: str, environment: str) -> str:
     environment = environment + '.' if environment != 'prod' else ''
     all_templates = []
 
@@ -35,7 +36,8 @@ def generate_templates(symm_id: str, hedger_addresses: list[str], party_b_addres
         templates = [
             f'"NEXT_PUBLIC_PERPS_{symm_id}_{hedger_address}_HEDGER_URL"   = "www.{environment}perps-streaming.com/v1/{symm_id}/{hedger_address}/"',
             f'"NEXT_PUBLIC_PERPS_{symm_id}_{hedger_address}_MULTIACCOUNT" = "{hedger_address}"',
-            f'"NEXT_PUBLIC_PERPS_{symm_id}_{hedger_address}_PARTY_B"      = "{party_b_address}"'
+            f'"NEXT_PUBLIC_PERPS_{symm_id}_{hedger_address}_PARTY_B" = "{party_b_address}"'
+            f'"NEXT_PUBLIC_PERPS_{symm_id}_{hedger_address}_DIAMOND_ADDRESS" = "{symm_core_address}"'
         ]
         all_templates.extend(templates)
 
