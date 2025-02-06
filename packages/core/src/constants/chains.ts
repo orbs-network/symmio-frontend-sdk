@@ -12,6 +12,7 @@ export enum SupportedChainId {
   MANTLE = 5000,
   BLAST = 81457,
   MODE = 34443,
+  BERA = 80094,
 }
 
 export const SUPPORTED_CHAIN_IDS: SupportedChainId[] = Object.values(

@@ -128,7 +128,28 @@ export const BaseChainOrbs: ChainType = {
   FUNDING_RATE_SUBGRAPH_ADDRESS:
     "https://api.studio.thegraph.com/query/62454/fundingrate_base_8_2/version/latest",
 }
+export const BeraChainOrbs: ChainType = {
+  COLLATERAL_SYMBOL: "USDC",
+  COLLATERAL_DECIMALS: 18,
+  COLLATERAL_ADDRESS: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
 
+  DIAMOND_ADDRESS: "0x91Cf2D8Ed503EC52768999aA6D8DBeA6e52dbe43",
+  SIGNATURE_STORE_ADDRESS: "N/A",
+  TP_SL_WALLET_ADDRESS: "",
+
+  MULTI_ACCOUNT_ADDRESS: process.env.NEXT_PUBLIC_BERA_MULTIACCOUNT!,
+  PARTY_B_WHITELIST: process.env.NEXT_PUBLIC_BERA_PARTY_B!,
+
+  MULTICALL3_ADDRESS: "0xcA11bde05977b3631167028862bE2a173976CA11",
+  USDC_ADDRESS: "0xd988097fb8612cc24eeC14542bC03424c656005f",
+  WRAPPED_NATIVE_ADDRESS: "N/A",
+  ANALYTICS_SUBGRAPH_ADDRESS:
+    "https://api.studio.thegraph.com/query/62454/analytics_base_8_2/version/latest",
+  ORDER_HISTORY_SUBGRAPH_ADDRESS:
+    "https://api.studio.thegraph.com/query/62454/main_base_8_2/version/latest",
+  FUNDING_RATE_SUBGRAPH_ADDRESS:
+    "https://api.studio.thegraph.com/query/62454/fundingrate_base_8_2/version/latest",
+}
 export const contractInfo: {
   [chainId: number]: { [name: string]: ChainType };
 } = {
@@ -138,6 +159,9 @@ export const contractInfo: {
 
   [SupportedChainId.BASE]: {
     [FrontEndsName.ORBS]: BaseChainOrbs,
+  },
+  [SupportedChainId.BERA]: {
+    [FrontEndsName.ORBS]: BeraChainOrbs,
   },
   [SupportedChainId.BLAST]: {},
 
