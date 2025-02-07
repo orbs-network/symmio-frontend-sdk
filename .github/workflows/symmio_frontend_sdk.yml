@@ -37,6 +37,11 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME_NONPROD }}
           role-session-name: terraform-gha
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.10.2"
+
       - name: Run AWS Terraform
         uses: ./.github/actions/aws-terraform
         with:
@@ -64,6 +69,11 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME_NONPROD }}
           role-session-name: terraform-gha
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.10.2"
+
       - name: Run AWS Terraform
         uses: ./.github/actions/aws-terraform
         with:
@@ -90,6 +100,11 @@ jobs:
           aws-region: ${{ env.aws_deploy_region }}
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME_NONPROD }}
           role-session-name: terraform-gha
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.10.2"
 
       - name: Run AWS Terraform
         uses: ./.github/actions/aws-terraform
