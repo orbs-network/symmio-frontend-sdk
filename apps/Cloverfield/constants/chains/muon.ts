@@ -1,5 +1,5 @@
-import { SupportedChainId } from "@symmio/frontend-sdk/constants/chains";
-import { MuonDataType } from "@symmio/frontend-sdk/state/chains/reducer";
+import { SupportedChainId } from '@symmio/frontend-sdk/constants/chains';
+import { MuonDataType } from '@symmio/frontend-sdk/state/chains/reducer';
 import {
   MUON_APP_NAME,
   BSC_MUON_BASE_URLS,
@@ -9,8 +9,8 @@ import {
   BLAST_MUON_BASE_URL,
   ARBITRUM_MUON_BASE_URL,
   MODE_MUON_BASE_URL,
-  BERA_MUON_BASE_URL
-} from "constants/chains/misc";
+  BERA_MUON_BASE_URL,
+} from 'constants/chains/misc';
 
 export const BSCChain: MuonDataType = {
   AppName: MUON_APP_NAME,

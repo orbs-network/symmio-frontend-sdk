@@ -187,4 +187,18 @@ export const ChainInfo: { [chainId: number]: Info } = {
     blockExplorerUrl: "https://modescan.io/",
     WRAPPED_NATIVE_ADDRESS: "0x4200000000000000000000000000000000000006",
   },
+  [SupportedChainId.BERA]: {
+    chainId: "0x138DE",
+    chainName: "Bera",
+    label: "Bera",
+    nativeCurrency: {
+      name: "BERA",
+      symbol: "Bera",
+      decimals: 18,
+    },
+
+    rpcUrl: "https://rpc.berachain.com",
+    blockExplorerUrl: "https://berascan.com/",
+    WRAPPED_NATIVE_ADDRESS: "0x6969696969696969696969696969696969696969",
+  },
 };
