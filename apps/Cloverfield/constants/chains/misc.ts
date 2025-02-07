@@ -45,3 +45,9 @@ export const MODE_MUON_BASE_URL = [
   "https://muon-oracle3.rasa.capital/v1/",
   "https://muon-oracle4.rasa.capital/v1/",
 ];
+
+export const BERA_MUON_BASE_URL = [
+  "https://muon-oracle2.rasa.capital/v1/",
+  "https://muon-oracle3.rasa.capital/v1/",
+  "https://muon-oracle4.rasa.capital/v1/",
+];

@@ -38,6 +38,7 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.MANTLE]: "mantle",
   [SupportedChainId.BLAST]: "blast",
   [SupportedChainId.MODE]: "mode",
+  [SupportedChainId.BERA]: "bera",
 };
 
 /**
@@ -65,6 +66,7 @@ export const L2_CHAIN_IDS = [
   SupportedChainId.MANTLE,
   SupportedChainId.BLAST,
   SupportedChainId.MODE,
+  SupportedChainId.BERA,
 ] as const;
 
 export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number];
