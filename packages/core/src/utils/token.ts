@@ -74,6 +74,10 @@ export function isBASE(chainId: number): chainId is SupportedChainId.BASE {
   return chainId === SupportedChainId.BASE;
 }
 
+export function isBERA(chainId: number): chainId is SupportedChainId.BERA {
+  return chainId === SupportedChainId.BERA;
+}
+
 export function isBLAST(chainId: number): chainId is SupportedChainId.BLAST {
   return chainId === SupportedChainId.BLAST;
 }
@@ -164,6 +168,24 @@ class BaseNativeCurrency extends NativeCurrency {
 
   public constructor(chainId: number) {
     if (!isBASE(chainId)) throw new Error("Not Eth");
+    super(chainId, 18, "ETH", "ETH");
+  }
+}
+
+class BeraNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId;
+  }
+
+  get wrapped(): Token {
+    if (!isBERA(this.chainId)) throw new Error("Not Eth");
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId];
+    invariant(wrapped instanceof Token);
+    return wrapped;
+  }
+
+  public constructor(chainId: number) {
+    if (!isBERA(chainId)) throw new Error("Not Eth");
     super(chainId, 18, "ETH", "ETH");
   }
 }
