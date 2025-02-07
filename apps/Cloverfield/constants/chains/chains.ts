@@ -1,4 +1,4 @@
-import { SupportedChainId } from "@symmio/frontend-sdk/constants/chains";
+import { SupportedChainId } from '@symmio/frontend-sdk/constants/chains';
 import {
   bsc,
   fantom,
@@ -10,8 +10,34 @@ import {
   blast,
   Chain,
   mode,
-} from "wagmi/chains";
-import { FrontEndsName } from "./addresses";
+} from 'wagmi/chains';
+import { FrontEndsName } from './addresses';
+
+const bera = {
+  id: 80094,
+  name: 'Berachain',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'BERA Token',
+    symbol: 'BERA',
+  },
+  contracts: {
+    multicall3: {
+      address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      blockCreated: 0,
+    },
+  },
+  rpcUrls: {
+    default: { http: ['https://rpc.berachain.com'] },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Berascan',
+      url: 'https://berascan.com',
+    },
+  },
+  testnet: false,
+};
 
 const supportedWagmiChain = {
   [SupportedChainId.FANTOM]: fantom,
@@ -23,6 +49,7 @@ const supportedWagmiChain = {
   [SupportedChainId.MANTLE]: mantle,
   [SupportedChainId.BLAST]: blast,
   [SupportedChainId.MODE]: mode,
+  [SupportedChainId.BERA]: bera,
 };
 
 function getWagmiChain(supportChainList: number[]): Chain[] {
@@ -30,12 +57,12 @@ function getWagmiChain(supportChainList: number[]): Chain[] {
 }
 
 export const WEBSOCKET_RPC_URLS: { [key in SupportedChainId]?: string } = {
-  [SupportedChainId.POLYGON]: "wss://polygon.drpc.org",
-  [SupportedChainId.BSC]: "wss://bsc-rpc.publicnode.com",
-  [SupportedChainId.MANTLE]: "wss://mantle-rpc.publicnode.com",
-  [SupportedChainId.BASE]: "wss://base-rpc.publicnode.com",
-  [SupportedChainId.BLAST]: "wss://blast.drpc.org",
-  [SupportedChainId.ARBITRUM]: "wss://arbitrum-one-rpc.publicnode.com",
+  [SupportedChainId.POLYGON]: 'wss://polygon.drpc.org',
+  [SupportedChainId.BSC]: 'wss://bsc-rpc.publicnode.com',
+  [SupportedChainId.MANTLE]: 'wss://mantle-rpc.publicnode.com',
+  [SupportedChainId.BASE]: 'wss://base-rpc.publicnode.com',
+  [SupportedChainId.BLAST]: 'wss://blast.drpc.org',
+  [SupportedChainId.ARBITRUM]: 'wss://arbitrum-one-rpc.publicnode.com',
 };
 
 export const ClientChain = [
@@ -46,6 +73,7 @@ export const ClientChain = [
   SupportedChainId.BLAST,
   SupportedChainId.MODE,
   SupportedChainId.ARBITRUM,
+  SupportedChainId.BERA,
 ];
 
 export const ALL_CHAINS = Object.values(supportedWagmiChain);
