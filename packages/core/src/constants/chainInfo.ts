@@ -133,6 +133,19 @@ export const ChainInfo: { [chainId: number]: Info } = {
     blockExplorerUrl: "https://basescan.org/",
     WRAPPED_NATIVE_ADDRESS: "0x4200000000000000000000000000000000000006",
   },
+  [SupportedChainId.BERA]: {
+    chainId: "0x138DE",
+    chainName: "Bera",
+    label: "Bera",
+    nativeCurrency: {
+      name: "Bera",
+      symbol: "BERA",
+      decimals: 18,
+    },
+    rpcUrl: "https://rpc.berachain.com/",
+    blockExplorerUrl: "https://berascan.org/",
+    WRAPPED_NATIVE_ADDRESS: "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+  },
   [SupportedChainId.MANTLE]: {
     chainId: "0x1388",
     chainName: "Mantle",
